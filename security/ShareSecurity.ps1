@@ -1,0 +1,1 @@
+Get-SmbShare | Select-Object Name | Get-SmbShareAccess | Export-CSV "$ENV:TEMP\ShareSecurity.csv"

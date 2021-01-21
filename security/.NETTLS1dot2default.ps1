@@ -1,0 +1,11 @@
+#https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#configuring-security-via-the-windows-registry
+#This sets the registry keys to default to secure SSL settings for the entire OS. 
+
+IF(!(Test-Path -Path HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\SystemDefaultTlsVersions)){New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\" -Name "SystemDefaultTlsVersions" -Value "1" -PropertyType "DWORD"}
+IF(!(Test-Path -Path HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\SchUseStrongCrypto)){New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\" -Name "SchUseStrongCrypto" -Value "1" -PropertyType "DWORD"}
+IF(!(Test-Path -Path HKLM:\SOFTWARE\Microsoft\.NETFramework\v2.0.50727\SystemDefaultTlsVersions)){New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v2.0.50727\" -Name "SystemDefaultTlsVersions" -Value "1" -PropertyType "DWORD"}
+IF(!(Test-Path -Path HKLM:\SOFTWARE\Microsoft\.NETFramework\v2.0.50727\SchUseStrongCrypto)){New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v2.0.50727\" -Name "SchUseStrongCrypto" -Value "1" -PropertyType "DWORD"}
+IF(!(Test-Path -Path HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319\SystemDefaultTlsVersions)){New-ItemProperty -Path "HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319\" -Name "SystemDefaultTlsVersions" -Value "1" -PropertyType "DWORD"}
+IF(!(Test-Path -Path HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319\SchUseStrongCrypto)){New-ItemProperty -Path "HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319\" -Name "SchUseStrongCrypto" -Value "1" -PropertyType "DWORD"}
+IF(!(Test-Path -Path HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727\SystemDefaultTlsVersions)){New-ItemProperty -Path "SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727\" -Name "SystemDefaultTlsVersions" -Value "1" -PropertyType "DWORD"}
+IF(!(Test-Path -Path HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727\SchUseStrongCrypto)){New-ItemProperty -Path "SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727\" -Name "SchUseStrongCrypto" -Value "1" -PropertyType "DWORD"}
