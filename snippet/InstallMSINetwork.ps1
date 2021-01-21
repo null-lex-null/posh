@@ -1,0 +1,1 @@
+Invoke-CimMethod -ClassName Win32_Product -MethodName Install -Arguments @{PackageLocation = '\\AppSrv\dsp\NewPackage.msi'}

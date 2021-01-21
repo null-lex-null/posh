@@ -1,0 +1,1 @@
+Get-FileHash - path C:\XXX -Algorithm SHA1

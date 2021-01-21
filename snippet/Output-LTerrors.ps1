@@ -1,0 +1,1 @@
+﻿Get-Content C:\Windows\LTSVC\lterrors.txt -tail 2 -wait
