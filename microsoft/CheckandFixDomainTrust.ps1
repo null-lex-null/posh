@@ -1,0 +1,1 @@
+if(!(Test-ComputerSecureChannel)){Start-Process "powershell" -Verb RunAs -ArgumentList "Test-ComputerSecureChannel -Repair"}
