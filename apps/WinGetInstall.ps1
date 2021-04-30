@@ -7,7 +7,7 @@ IF ($find.Count -eq '0') {
     $downloadurl = [uri]$downloadurl
     $filename = $downloadurl.Segments | Select-Object -Last 1
     $path = Join-Path -Path $env:TEMP -ChildPath $filename
-    Invoke-WebRequest -Uri $downloadurl -OutFile $path
+    (New-Object Net.WebClient).DownloadFile($downloadurl, $path)
     Unblock-File -Path "$path"
     Add-AppxPackage -Path $path
 }
@@ -20,7 +20,7 @@ $data = @"
 },
 "experimentalFeatures": {
     "experimentalMSStore": true
-},
+}
 "@
 IF (!(Test-Path -Path "$env:LOCALAPPDATA\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\settings.json")) { Set-Content -Path "$env:LOCALAPPDATA\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\settings.json" -Value "$data" }
 $wingetexe = $find.FullName
