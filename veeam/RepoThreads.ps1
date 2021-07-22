@@ -6,7 +6,7 @@ IF ($repos.count -gt '1') {
     }
     
 }
-ELSE {
+IF($repos.count -eq '1') {
     Write-Host "$($repos.Name)"
     Write-Host "Max Task Count: $($repos.Options.MaxTaskCount)" 
 }
